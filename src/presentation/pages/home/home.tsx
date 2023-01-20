@@ -1,9 +1,9 @@
-import { Text } from '@chakra-ui/react'
+import { Navbar } from '@/presentation/components'
 import React from 'react'
 
 const App: React.FC = () => {
   return (
-    <Text fontSize='2xl'>(2xl) In love with React & Next</Text>
+    <Navbar />
   )
 }
 
