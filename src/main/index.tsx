@@ -1,8 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import { Router } from '@/presentation/components'
+import { ChakraProvider } from '@chakra-ui/react'
 
 ReactDOM.render(
-  <App />,
+  <ChakraProvider>
+    <Router />
+  </ChakraProvider>,
   document.getElementById('main')
 )
