@@ -1,11 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import { Router } from '@/presentation/components'
 import { ChakraProvider } from '@chakra-ui/react'
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById('main') as HTMLElement).render(
   <ChakraProvider>
     <Router />
-  </ChakraProvider>,
-  document.getElementById('main')
+  </ChakraProvider>
 )
