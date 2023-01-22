@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react"
 import { makeReduxStateManager } from "@/main/factories/state-manager/redux-store"
-import { Provider } from 'react-redux'
+import { Provider, TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { PersistGate } from "redux-persist/lib/integration/react"
 
 interface ReduxStoreProviderProps {
@@ -21,3 +21,13 @@ const ReduxStoreProvider: React.FC<ReduxStoreProviderProps>
 }
 
 export default ReduxStoreProvider
+
+export type IRootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
+const useAppDispatch: () => AppDispatch = useDispatch
+const useAppSelector: TypedUseSelectorHook<IRootState> = useSelector
+
+export {
+  useAppDispatch,
+  useAppSelector
+}

@@ -9,7 +9,7 @@ const initialState: ArticleState = {
   articles: [],
   article: null,
   sortBy: null,
-  total: 0,
+  length: 0,
   filters: {
     offset: '0',
     limit: '10',
@@ -51,7 +51,5 @@ const articleSlice = new ArticleSlice()
 export default articleSlice.getSlice().reducer
 
 // Actions
-export const {
-  sortByArticles,
-  filterArticles
-} = articleSlice.getActions()
+export const articleSlices = articleSlice.getActions()
+export type ArticleSlicesType = typeof articleSlices

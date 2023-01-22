@@ -16,8 +16,8 @@ export const articleReducers = {
   // GET ARTICLES
   getArticlesSuccess (state: ArticleState, action: PayloadAction<any>) {
     state.isLoading = false
-    state.articles = action.payload.articles
-    state.total = action.payload.total
+    state.articles = action.payload
+    state.length = action.payload.length
   },
 
   // GET ARTICLE

@@ -16,6 +16,6 @@ export interface ArticleState {
   articles: object
   article: object | null
   sortBy: string | null
-  total: number
+  length: number
   filters: ArticleFiltersState
 };
