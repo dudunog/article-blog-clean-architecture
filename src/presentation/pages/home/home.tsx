@@ -3,13 +3,13 @@ import { Navbar, Loading } from '@/presentation/components'
 import { ArticleListItem } from '@/presentation/pages/home/components'
 import { useAppDispatch, useAppSelector } from '@/main/providers/redux-store-provider'
 import { LoadArticleList } from '@/domain/usecases'
-import { Box } from '@chakra-ui/react'
+import { Container } from '@chakra-ui/react'
 
-type Props = {
+export type HomeProps = {
   loadArticleList: LoadArticleList
 }
 
-const App: React.FC<Props> = ({ loadArticleList }) => {
+const Home: React.FC<HomeProps> = ({ loadArticleList }) => {
   const dispatch = useAppDispatch()
 
   const {
@@ -26,15 +26,15 @@ const App: React.FC<Props> = ({ loadArticleList }) => {
     <>
       <Navbar />
 
-      <Box>
+      <Container maxW={'7xl'} p="12">
         {(isLoading && !articles.leth) ? <Loading /> : (
           error
           ? "Error"
           : <ArticleListItem articles={articles} />
         )}
-      </Box>
+      </Container>
     </>
   )
 }
 
-export default App
+export default Home
