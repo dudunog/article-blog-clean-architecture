@@ -1,6 +1,7 @@
 export interface ArticleFiltersState {
   page: number
   search: string
+  orderby: string
 }
 
 export interface ArticleState {

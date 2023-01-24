@@ -12,7 +12,8 @@ const initialState: ArticleState = {
   sortBy: null,
   filters: {
     page: 1,
-    search: ''
+    search: "",
+    orderby: ""
   }
 }
 

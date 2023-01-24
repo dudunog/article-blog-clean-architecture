@@ -1,6 +1,7 @@
 import { LoadArticleList, StoreArticleList } from '@/domain/usecases'
 import { FetchArticleList } from '@/domain/usecases/fetch-article-list'
 import { ArticleFiltersState } from '@/data/protocols/state-manager'
+import { makeApiQuery } from '@/main/factories/http'
 
 export class RemoteLoadArticleList implements LoadArticleList {
   constructor (
@@ -11,7 +12,7 @@ export class RemoteLoadArticleList implements LoadArticleList {
   async loadAll (filters: ArticleFiltersState): Promise<LoadArticleList.Model[]> {
     try {
       await this.storeArticleList.startLoading()
-      const articles = await this.fetchArticleList.fetchAll(`?page=${filters.page}`)
+      const articles = await this.fetchArticleList.fetchAll(makeApiQuery(filters))
       await this.storeArticleList.store(articles)
 
       return articles.data

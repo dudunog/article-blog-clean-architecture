@@ -1,8 +1,11 @@
+import { Text } from '@chakra-ui/react'
 import React from 'react'
 
 const ArticleItemEmpty: React.FC = () => {
   return (
-    <p>Nenhum resultado</p>
+    <Text>
+      Não existem artigos relacionados ao termo pesquisado!
+    </Text>
   )
 }
 

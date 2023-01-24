@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState } from "react"
-import { Navbar, Loading } from "@/presentation/components"
+import { Navbar, Loading, Search } from "@/presentation/components"
 import { ArticleListItem } from "@/presentation/pages/home/components"
 import { useAppDispatch, useAppSelector } from "@/main/providers/redux-store-provider"
 import { LoadArticleList, StoreArticleList } from "@/domain/usecases"
@@ -12,6 +12,8 @@ export type HomeProps = {
 
 const Home: React.FC<HomeProps> = ({ loadArticleList, storeArticleList }) => {
   const [page, setPage] = useState(1)
+  const [search, setSearch] = useState("")
+  const [orderby, setOrderby] = useState("")
   const dispatch = useAppDispatch()
 
   const {
@@ -21,12 +23,17 @@ const Home: React.FC<HomeProps> = ({ loadArticleList, storeArticleList }) => {
     error
   } = useAppSelector((state) => state.article)
 
-  useEffect(() => {
+  const load = (page: number, search: string, orderby: string) => {
     storeArticleList.filterArticles({ page })
     loadArticleList.loadAll({
       page,
-      search: ''
+      search,
+      orderby
     })
+  }
+
+  useEffect(() => {
+    load(page, search, orderby)
   }, [page])
 
   return (
@@ -34,11 +41,25 @@ const Home: React.FC<HomeProps> = ({ loadArticleList, storeArticleList }) => {
       <Navbar />
 
       <Container maxW="7xl" p="12">
+        <Search
+          page={page}
+          search={search}
+          setSearch={setSearch}
+          orderby={orderby}
+          setOrderby={setOrderby}
+          load={load}
+        />
+
         <Suspense fallback={<Loading />}>
           {(isLoading && !articles.leth) ? <Loading /> : (
             error
             ? "Error"
-            : <ArticleListItem articles={articles} page={page} size={size} setPage={setPage} />
+            : <ArticleListItem
+                articles={articles}
+                page={page}
+                size={size}
+                setPage={setPage}
+              />
           )}
         </Suspense>
       </Container>
