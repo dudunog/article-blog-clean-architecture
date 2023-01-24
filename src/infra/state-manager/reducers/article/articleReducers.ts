@@ -16,8 +16,8 @@ export const articleReducers = {
   // GET ARTICLES
   getArticlesSuccess (state: ArticleState, action: PayloadAction<any>) {
     state.isLoading = false
-    state.articles = action.payload
-    state.length = action.payload.length
+    state.articles = action.payload.data
+    state.size = action.payload.size
   },
 
   // GET ARTICLE
@@ -36,13 +36,7 @@ export const articleReducers = {
   },
 
   filterArticles (state: ArticleState, action: PayloadAction<any>) {
-    state.filters.offset = action.payload.offset
-    state.filters.limit = action.payload.limit
-    state.filters.sort = action.payload.sort
-    state.filters.fsearch = action.payload.fsearch
-    state.filters.fstatus = action.payload.fstatus
-    state.filters.fcategory = action.payload.rating
-    state.filters.fpriority = action.payload.fpriority
-    state.filters.ftechnician = action.payload.ftechnician
+    state.filters.page = action.payload.page
+    state.filters.search = action.payload.search
   }
 }

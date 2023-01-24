@@ -5,21 +5,14 @@ import { articleReducers } from '@/infra/state-manager/reducers'
 
 const initialState: ArticleState = {
   isLoading: false,
-  error: null,
   articles: [],
   article: null,
+  error: null,
+  size: 0,
   sortBy: null,
-  length: 0,
   filters: {
-    offset: '0',
-    limit: '10',
-    sort: 'ASC',
-    fsearch: '',
-    fstatus: '',
-    fcategory: '',
-    fpriority: '',
-    ftechnician: '',
-    query: ''
+    page: 1,
+    search: ''
   }
 }
 

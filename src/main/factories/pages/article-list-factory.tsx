@@ -1,13 +1,17 @@
-import { makeRemoteLoadArticleList } from '@/main/factories/usecases'
-import { Loadable } from '@/presentation/components'
-import { HomeProps } from '@/presentation/pages/home/home'
-
 import React, { lazy } from 'react'
+import {
+  makeRemoteLoadArticleList,
+  makeRemoteStoreArticleList
+} from '@/main/factories/usecases'
+import { Loadable } from '@/presentation/components'
 
-const Home = Loadable(lazy(async () => import('@/presentation/pages/home/home')))
+const ArticleList = Loadable(lazy(async () => import('@/presentation/pages/home/home')))
 
 export const makeArticleList: React.FC = () => {
   return (
-    <Home loadArticleList={makeRemoteLoadArticleList()} />
+    <ArticleList
+      loadArticleList={makeRemoteLoadArticleList()}
+      storeArticleList={makeRemoteStoreArticleList()}
+    />
   )
 }

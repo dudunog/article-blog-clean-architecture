@@ -9,7 +9,8 @@ import {
   WrapItem,
   Link as LinkChakra,
 } from "@chakra-ui/react"
-import { Tags } from "@/presentation/components"
+import { SuspenseImg, Tags } from "@/presentation/components"
+import ArticleImage from '@/presentation/assets/article.png'
 
 type ArticleItemProps = {
   article: LoadArticleList.Model
@@ -22,13 +23,15 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ article }: ArticleItemProps) 
       flexDirection="row"
       bg={useColorModeValue("white", "gray.900")}
       boxShadow="lg"
+      alignContent="center"
     >
       <Box w="100%">
         <Box borderRadius="lg" overflow="hidden">
           <LinkChakra textDecoration="none" _hover={{ textDecoration: "none" }}>
-            <Image
+            <SuspenseImg
+              maxH={247}
               transform="scale(1.0)"
-              src={article.featured_media.medium_large}
+              src={article?.featured_media?.medium_large || ArticleImage}
               alt={article.title}
               objectFit="contain"
               width="100%"
@@ -43,11 +46,11 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ article }: ArticleItemProps) 
           <Tags tags={article.categories.map(c => c.name)} marginTop="3" />
           <Heading fontSize="xl" marginTop="2">
             <LinkChakra textDecoration="none" _hover={{ textDecoration: "none" }}>
-              {article.title}
+              {article.title || "Untitled"}
             </LinkChakra>
           </Heading>
           <Text as="p" fontSize="md" marginTop="2" color="gray.500">
-            {article.headline}
+            {article.headline || "No description"}
           </Text>
         </Box>
       </Box>

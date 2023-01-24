@@ -1,7 +1,8 @@
+import { ArticleFiltersState } from "@/data/protocols/state-manager"
 import { ArticleModel } from "@/domain/models"
 
 export interface LoadArticleList {
-  loadAll: () => Promise<LoadArticleList.Model[]>
+  loadAll: (filters: ArticleFiltersState) => Promise<LoadArticleList.Model[]>
 }
 
 export namespace LoadArticleList {
