@@ -1,7 +1,7 @@
-import { LoadArticleList, StoreArticleList } from '@/domain/usecases'
-import { FetchArticleList } from '@/domain/usecases/fetch-article-list'
-import { ArticleFiltersState } from '@/data/protocols/state-manager'
-import { makeApiQuery } from '@/main/factories/http'
+import { LoadArticleList, StoreArticleList } from "@/domain/usecases"
+import { FetchArticleList } from "@/domain/usecases/fetch-article-list"
+import { ArticleFiltersState } from "@/data/protocols/state-manager"
+import { makeApiQuery } from "@/main/factories/http"
 
 export class RemoteLoadArticleList implements LoadArticleList {
   constructor (

@@ -1,7 +1,7 @@
-import { StoreArticleList } from '@/domain/usecases'
-import { AppDispatch } from '@/main/providers/redux-store-provider'
-import { ArticleSlicesType } from '@/infra/state-manager/slices'
-import { ArticleFiltersState, ArticleState } from '@/data/protocols/state-manager'
+import { StoreArticleList } from "@/domain/usecases"
+import { AppDispatch } from "@/main/providers/redux-store-provider"
+import { ArticleSlicesType } from "@/infra/state-manager/slices"
+import { ArticleFiltersState, ArticleState } from "@/data/protocols/state-manager"
 
 export class RemoteStoreArticleList implements StoreArticleList {
   constructor (

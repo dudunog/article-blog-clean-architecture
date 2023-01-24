@@ -1,7 +1,8 @@
-import { ArticleModel, HttpResposeModel } from "@/domain/models"
+import { ArticleModel, ArticleListHttpResponse } from "@/domain/models"
 
 export interface FetchArticleList {
-  fetchAll: (query: string) => Promise<HttpResposeModel<FetchArticleList.Model[]>>
+  fetchAll: (query: string) =>
+    Promise<ArticleListHttpResponse<FetchArticleList.Model[]>>
 }
 
 export namespace FetchArticleList {
