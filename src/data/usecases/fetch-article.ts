@@ -8,9 +8,9 @@ export class RemoteFetchArticle implements FetchArticle {
     private readonly httpClient: HttpClient<FetchArticle.Model>
   ) {}
 
-  async fetch (query: string): Promise<FetchArticle.Model> {
+  async fetch (id: string): Promise<FetchArticle.Model> {
     const httpResponse = await this.httpClient.request({
-      url: this.url + query,
+      url: this.url + id,
       method: "get"
     })
 

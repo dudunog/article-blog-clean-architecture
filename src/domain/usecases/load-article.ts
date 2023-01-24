@@ -1,7 +1,7 @@
 import { ArticleModel } from "@/domain/models"
 
 export interface LoadArticle {
-  load: (articleId: number) => Promise<LoadArticle.Model>
+  load: (id: string) => Promise<LoadArticle.Model>
 }
 
 export namespace LoadArticle {

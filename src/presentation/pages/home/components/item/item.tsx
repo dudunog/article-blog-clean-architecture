@@ -3,16 +3,15 @@ import { LoadArticleList } from "@/domain/usecases"
 import {
   Box,
   Heading,
-  Image,
   Text,
   useColorModeValue,
   WrapItem,
   Link as LinkChakra,
 } from "@chakra-ui/react"
 import { SuspenseImg, Tags } from "@/presentation/components"
-import ArticleImage from '@/presentation/assets/article.png'
+import ArticleImage from "@/presentation/assets/article.png"
 
-type ArticleItemProps = {
+interface ArticleItemProps {
   article: LoadArticleList.Model
 }
 
@@ -27,7 +26,11 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ article }: ArticleItemProps) 
     >
       <Box w="100%">
         <Box borderRadius="lg" overflow="hidden">
-          <LinkChakra textDecoration="none" _hover={{ textDecoration: "none" }}>
+          <LinkChakra
+            textDecoration="none"
+            _hover={{ textDecoration: "none" }}
+            href={`/article/${article.id}`}
+          >
             <SuspenseImg
               maxH={247}
               transform="scale(1.0)"
@@ -45,7 +48,11 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ article }: ArticleItemProps) 
         <Box px={5} py={1} pb={3}>
           <Tags tags={article.categories.map(c => c.name)} marginTop="3" />
           <Heading fontSize="xl" marginTop="2">
-            <LinkChakra textDecoration="none" _hover={{ textDecoration: "none" }}>
+            <LinkChakra
+              textDecoration="none"
+              _hover={{ textDecoration: "none" }}
+              href={`/article/${article.id}`}
+            >
               {article.title || "Untitled"}
             </LinkChakra>
           </Heading>

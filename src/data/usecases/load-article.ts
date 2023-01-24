@@ -8,18 +8,18 @@ import {
 export class RemoteLoadArticle implements LoadArticle {
   constructor (
     private readonly fetchArticle: FetchArticle,
-    private readonly storeArticleList: StoreArticle
+    private readonly storeArticle: StoreArticle
   ) {}
 
-  async load (articleId: number): Promise<LoadArticleList.Model> {
+  async load (id: string): Promise<LoadArticleList.Model> {
     try {
-      await this.storeArticleList.startLoading()
-      const article = await this.fetchArticle.fetch(`/${articleId}`)
-      await this.storeArticleList.store(article)
+      await this.storeArticle.startLoading()
+      const article = await this.fetchArticle.fetch(`/${id}`)
+      await this.storeArticle.store(article)
 
       return article
     } catch (error) {
-      await this.storeArticleList.error(error)
+      await this.storeArticle.error(error)
     }
   }
 }

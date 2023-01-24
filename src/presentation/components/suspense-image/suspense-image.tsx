@@ -27,7 +27,8 @@ const imgCache = {
   }
 }
 
-const SuspenseImg: ComponentWithAs<"img", ImageProps> = ({ src, ...rest }) => {
+const SuspenseImg: ComponentWithAs<"img", ImageProps> =
+  ({ src, ...rest }) => {
   imgCache.read(src)
   return <ChakraImage src={src} {...rest} />
 }

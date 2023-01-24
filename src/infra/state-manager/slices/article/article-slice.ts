@@ -4,7 +4,7 @@ import { ArticleState } from "@/data/protocols/state-manager"
 import { articleReducers } from "@/infra/state-manager/reducers"
 
 const initialState: ArticleState = {
-  isLoading: false,
+  isLoading: true,
   articles: [],
   article: null,
   error: null,

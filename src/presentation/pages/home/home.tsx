@@ -53,7 +53,7 @@ const Home: React.FC<HomeProps> =
         />
 
         <Suspense fallback={<Loading />}>
-          {(isLoading && !articles.leth) ? <Loading /> : (
+          {(isLoading && !articles.length) ? <Loading /> : (
             error
             ? "Error"
             : <ArticleListItem

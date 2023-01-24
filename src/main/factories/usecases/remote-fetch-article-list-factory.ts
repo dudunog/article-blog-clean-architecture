@@ -4,4 +4,4 @@ import { makeApiUrl } from '@/main/factories/http'
 import { makeHttpClientDecorator } from '@/main/factories/decorators'
 
 export const makeRemoteFetchArticleList = (): FetchArticleList =>
-  new RemoteFetchArticleList(makeApiUrl('/posts'), makeHttpClientDecorator())
+  new RemoteFetchArticleList(makeApiUrl('/v2/posts'), makeHttpClientDecorator())
