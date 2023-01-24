@@ -58,7 +58,7 @@ const Pagination: React.FC<PaginationProps> = ({
       alignItems="center"
     >
       <Box>
-        <strong>{lastItem === 0 ? 0 : initialItem}</strong> - <strong>{lastItem}</strong>{' '}
+        <strong>{lastItem === 0 ? 0 : initialItem}</strong> - <strong>{lastItem}</strong>{" "}
         de <strong>{totalCountOfRegisters}</strong>
       </Box>
       <Stack direction="row" spacing="2">
@@ -66,7 +66,7 @@ const Pagination: React.FC<PaginationProps> = ({
           <>
             <PaginationItem onPageChange={onPageChange} currentPage={1} />
             {currentPage > 2 + siblingsCount && (
-              <Text color={useColorModeValue('gray.900', 'white')} width="8" textAlign="center" alignSelf="end">
+              <Text color={useColorModeValue("gray.900", "white")} width="8" textAlign="center" alignSelf="end">
                 ...
               </Text>
             )}
@@ -80,7 +80,7 @@ const Pagination: React.FC<PaginationProps> = ({
           })}
         <PaginationItem onPageChange={onPageChange} currentPage={currentPage} isCurrent />
         {nextPages.length > 0 &&
-          nextPages.map((page, index, array) => {
+          nextPages.map((page) => {
             return (
               <PaginationItem key={page} onPageChange={onPageChange} currentPage={page} />
             )
@@ -92,7 +92,7 @@ const Pagination: React.FC<PaginationProps> = ({
                 width="8"
                 textAlign="center"
                 alignSelf="end"
-                color={useColorModeValue('gray.900', 'white')}
+                color={useColorModeValue("gray.900", "white")}
               >
                 ...
               </Text>

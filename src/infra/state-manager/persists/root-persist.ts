@@ -1,8 +1,8 @@
-import storage from 'redux-persist/lib/storage'
+import storage from "redux-persist/lib/storage"
 
 export const rootPersistConfig = {
-  key: 'root',
+  key: "root",
   storage,
-  keyPrefix: 'redux-',
+  keyPrefix: "redux-",
   whitelist: []
 }

@@ -1,10 +1,10 @@
-import { AxiosHttpClient } from '@/infra/http'
-import { mockAxios, mockHttpResponse } from '@/tests/infra/mocks'
-import { mockHttpRequest } from '@/tests/data/mocks'
+import { AxiosHttpClient } from "@/infra/http"
+import { mockAxios, mockHttpResponse } from "@/tests/infra/mocks"
+import { mockHttpRequest } from "@/tests/data/mocks"
 
-import axios from 'axios'
+import axios from "axios"
 
-jest.mock('axios')
+jest.mock("axios")
 
 type SutTypes = {
   sut: AxiosHttpClient
@@ -20,8 +20,8 @@ const makeSut = (): SutTypes => {
   }
 }
 
-describe('AxiosHttpClient', () => {
-  test('Should call axios with correct values', async () => {
+describe("AxiosHttpClient", () => {
+  test("Should call axios with correct values", async () => {
     const request = mockHttpRequest()
     const { sut, mockedAxios } = makeSut()
 
@@ -35,7 +35,7 @@ describe('AxiosHttpClient', () => {
     })
   })
 
-  test('Should return correct response', async () => {
+  test("Should return correct response", async () => {
     const { sut, mockedAxios } = makeSut()
 
     const httpResponse = await sut.request(mockHttpRequest())
@@ -47,7 +47,7 @@ describe('AxiosHttpClient', () => {
     })
   })
 
-  test('Should return correct error', () => {
+  test("Should return correct error", () => {
     const { sut, mockedAxios } = makeSut()
     mockedAxios.request.mockRejectedValueOnce({
       response: mockHttpResponse()

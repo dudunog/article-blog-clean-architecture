@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react"
 import { makeReduxStateManager } from "@/main/factories/state-manager/redux-store"
-import { Provider, TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
+import { Provider, TypedUseSelectorHook, useDispatch, useSelector } from "react-redux"
 import { PersistGate } from "redux-persist/lib/integration/react"
 
 interface ReduxStoreProviderProps {

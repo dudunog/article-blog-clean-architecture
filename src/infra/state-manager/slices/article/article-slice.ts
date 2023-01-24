@@ -22,7 +22,7 @@ export class ArticleSlice implements ISlice<ArticleState, typeof articleReducers
 
   constructor () {
     const articleSlice = createSlice({
-      name: 'article',
+      name: "article",
       initialState,
       reducers: articleReducers
     })

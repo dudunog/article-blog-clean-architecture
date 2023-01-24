@@ -1,4 +1,4 @@
-import { HttpClient, HttpRequest, HttpResponse } from '@/data/protocols/http'
+import { HttpClient, HttpRequest, HttpResponse } from "@/data/protocols/http"
 
 export class HttpClientDecorator implements HttpClient {
   constructor (

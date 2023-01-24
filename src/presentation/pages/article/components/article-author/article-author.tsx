@@ -21,9 +21,9 @@ const ArticleAuthor: React.FC<ArticleAuthorProps> = ({
       <Card
         mt={5}
         w="full"
-        direction={{ base: 'column', sm: 'row' }}
-        overflow='hidden'
-        variant='outline'
+        direction={{ base: "column", sm: "row" }}
+        overflow="hidden"
+        variant="outline"
       >
         <Box display="flex" my={5} mx={3} gap={2}>
           <SuspenseImg

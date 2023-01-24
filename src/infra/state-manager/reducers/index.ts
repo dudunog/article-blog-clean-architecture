@@ -1,1 +1,1 @@
-export * from './article/articleReducers'
+export * from "./article/articleReducers"

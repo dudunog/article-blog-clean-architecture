@@ -1,10 +1,10 @@
-import { HttpRequest, HttpResponse, HttpStatusCode, HttpClient } from '@/data/protocols/http'
+import { HttpRequest, HttpResponse, HttpStatusCode, HttpClient } from "@/data/protocols/http"
 
-import faker from 'faker'
+import faker from "faker"
 
 export const mockHttpRequest = (): HttpRequest => ({
   url: faker.internet.url(),
-  method: faker.random.arrayElement(['get', 'post', 'put', 'delete']),
+  method: faker.random.arrayElement(["get", "post", "put", "delete"]),
   body: faker.random.objectElement(),
   headers: faker.random.objectElement()
 })
