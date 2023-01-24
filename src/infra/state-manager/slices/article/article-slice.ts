@@ -1,7 +1,7 @@
-import { ISlice } from '@/data/protocols/state-manager'
-import { CaseReducerActions, createSlice, Slice } from '@reduxjs/toolkit'
-import { ArticleState } from '@/data/protocols/state-manager'
-import { articleReducers } from '@/infra/state-manager/reducers'
+import { ISlice } from "@/data/protocols/state-manager"
+import { CaseReducerActions, createSlice, Slice } from "@reduxjs/toolkit"
+import { ArticleState } from "@/data/protocols/state-manager"
+import { articleReducers } from "@/infra/state-manager/reducers"
 
 const initialState: ArticleState = {
   isLoading: false,
@@ -35,7 +35,8 @@ export class ArticleSlice implements ISlice<ArticleState, typeof articleReducers
   }
 
   getActions (): CaseReducerActions<typeof articleReducers, "article"> {
-    return this.articleSlice.actions as CaseReducerActions<typeof articleReducers, "article">
+    return this.articleSlice.actions as
+      CaseReducerActions<typeof articleReducers, "article">
   }
 }
 

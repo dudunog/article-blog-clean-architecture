@@ -1,16 +1,17 @@
 import React, { Suspense, useEffect, useState } from "react"
-import { Navbar, Loading, Search } from "@/presentation/components"
-import { ArticleListItem } from "@/presentation/pages/home/components"
+import { Navbar, Loading } from "@/presentation/components"
+import { ArticleListItem, Search } from "@/presentation/pages/home/components"
 import { useAppDispatch, useAppSelector } from "@/main/providers/redux-store-provider"
 import { LoadArticleList, StoreArticleList } from "@/domain/usecases"
 import { Container } from "@chakra-ui/react"
 
-export type HomeProps = {
+export interface HomeProps {
   loadArticleList: LoadArticleList
   storeArticleList: StoreArticleList
 }
 
-const Home: React.FC<HomeProps> = ({ loadArticleList, storeArticleList }) => {
+const Home: React.FC<HomeProps> =
+  ({ loadArticleList, storeArticleList }) => {
   const [page, setPage] = useState(1)
   const [search, setSearch] = useState("")
   const [orderby, setOrderby] = useState("")
@@ -48,6 +49,7 @@ const Home: React.FC<HomeProps> = ({ loadArticleList, storeArticleList }) => {
           orderby={orderby}
           setOrderby={setOrderby}
           load={load}
+          disabledRelevance={size === 0}
         />
 
         <Suspense fallback={<Loading />}>

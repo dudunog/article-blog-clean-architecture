@@ -6,6 +6,7 @@ import {
   InputGroup,
   InputLeftElement,
   Tooltip,
+  useColorModeValue,
   useToast
 } from "@chakra-ui/react"
 import { SearchIcon, UpDownIcon } from "@chakra-ui/icons"
@@ -16,6 +17,7 @@ interface SearchProps {
   setSearch: React.Dispatch<React.SetStateAction<any>>
   orderby: string
   setOrderby: React.Dispatch<React.SetStateAction<any>>
+  disabledRelevance: boolean
   load: (page: number, search: string, orderby: string) => void
 }
 
@@ -25,6 +27,7 @@ const Search: React.FC<SearchProps> = ({
   setSearch,
   orderby,
   setOrderby,
+  disabledRelevance,
   load
 }) => {
   const toast = useToast()
@@ -64,7 +67,7 @@ const Search: React.FC<SearchProps> = ({
       </InputLeftElement>
 
       <Input
-        type="tel"
+        type="text"
         placeholder="Busca"
         color="#a3a3a3"
         value={search}
@@ -86,10 +89,11 @@ const Search: React.FC<SearchProps> = ({
         label="Mais relevantes"
       >
         <IconButton
-          bg={orderby === "relevance" ? "blue.500" : "whiteAlpha.200"}
+          bg={orderby === "relevance" ? "blue.500" : useColorModeValue("gray.100", "whiteAlpha.200")}
           aria-label="Mais relevantes"
           icon={<UpDownIcon />}
           onClick={() => handleFilterByRelevance()}
+          isDisabled={disabledRelevance}
           _hover={{
             bgColor: "blue.500",
             color: "white"

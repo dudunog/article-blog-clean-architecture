@@ -1,9 +1,8 @@
-export { default as Loadable } from './loadable/loadable'
-export { default as Loading } from './loading/loading'
-export { default as Navbar } from './navbar/navbar'
-export { default as Pagination } from './pagination/pagination'
-export { default as PaginationItem } from './pagination-item/pagination-item'
-export { default as Router } from './routes/router'
-export { default as Search } from './search/search'
-export { default as SuspenseImg } from './suspense-image/suspense-image'
-export { default as Tags } from './tags/tags'
+export { default as Loadable } from "./loadable/loadable"
+export { default as Loading } from "./loading/loading"
+export { default as Navbar } from "./navbar/navbar"
+export { default as Pagination } from "./pagination/pagination"
+export { default as PaginationItem } from "./pagination-item/pagination-item"
+export { default as Router } from "./routes/router"
+export { default as SuspenseImg } from "./suspense-image/suspense-image"
+export { default as Tags } from "./tags/tags"

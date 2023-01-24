@@ -1,11 +1,11 @@
-import { Reducer } from 'react'
-import { CombinedState, Store } from 'redux'
-import { IStateManager } from '@/data/protocols/state-manager'
-import { configureStore } from '@reduxjs/toolkit'
-import { rootPersistConfig } from './persists/root-persist'
-import { Persistor, persistReducer, persistStore } from 'redux-persist'
+import { Reducer } from "react"
+import { CombinedState, Store } from "redux"
+import { IStateManager } from "@/data/protocols/state-manager"
+import { configureStore } from "@reduxjs/toolkit"
+import { rootPersistConfig } from "./persists/root-persist"
+import { Persistor, persistReducer, persistStore } from "redux-persist"
 
-type StoreData = {
+interface StoreData {
   rootReducer: Reducer<CombinedState<any>, any>
 }
 
