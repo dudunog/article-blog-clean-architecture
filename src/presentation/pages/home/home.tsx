@@ -24,9 +24,9 @@ const Home: React.FC<HomeProps> =
       error
     }: ArticleState = useAppSelector((state) => state.article)
 
-    const load = async (page: number, search: string, orderby: string): Promise<void> => {
-      await storeArticleList.filterArticles({ page })
-      await loadArticleList.loadAll({
+    const load = (page: number, search: string, orderby: string): void => {
+      storeArticleList.filterArticles({ page })
+      loadArticleList.loadAll({
         page,
         search,
         orderby
@@ -34,7 +34,7 @@ const Home: React.FC<HomeProps> =
     }
 
     useEffect(() => {
-      load(page, search, orderby).then()
+      load(page, search, orderby)
     }, [page])
 
     return (
@@ -53,7 +53,7 @@ const Home: React.FC<HomeProps> =
         />
 
         <Suspense fallback={<Loading />}>
-          {(isLoading && !articles.length)
+          {isLoading
             ? <Loading />
             : (
                 error
