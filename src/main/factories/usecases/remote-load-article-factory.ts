@@ -2,7 +2,7 @@ import { LoadArticle } from "@/domain/usecases"
 import { RemoteLoadArticle } from "@/data/usecases"
 import {
   makeRemoteFetchArticle,
-  makeRemoteStoreArticle,
+  makeRemoteStoreArticle
 } from "@/main/factories/usecases"
 
 export const makeRemoteLoadArticle = (): LoadArticle =>

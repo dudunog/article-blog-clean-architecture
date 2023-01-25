@@ -16,37 +16,39 @@ interface ListProps {
 
 const List: React.FC<ListProps> =
   ({ articles, page, size, setPage }) => {
-  return (
-    <Stack>
-      <Heading as="h2" marginTop={10} marginBottom={5}>
-        Artigos
-      </Heading>
+    return (
+      <Stack>
+        <Heading as="h2" marginTop={10} marginBottom={5}>
+          Artigos
+        </Heading>
 
-      {articles?.length ? (
-        <>
-          <Pagination
-            onPageChange={setPage}
-            totalCountOfRegisters={size}
-            currentPage={page}
-            registersPerPage={10}
-          />
+        {articles?.length
+          ? (
+              <>
+                <Pagination
+                  onPageChange={setPage}
+                  totalCountOfRegisters={size}
+                  currentPage={page}
+                  registersPerPage={10}
+                />
 
-          <Wrap
-            spacing="30px"
-            css={{
-              "ul": {
-                justifyContent:"center"
-              }
-            }}
-          >
-            {articles.map((article: LoadArticleList.Model) =>
-              <ArticleItem key={article.id} article={article} />)
-            }
-          </Wrap>
-        </>
-      ): <ArticleItemEmpty />}
-    </Stack>
-  )
-}
+                <Wrap
+                  spacing="30px"
+                  css={{
+                    ul: {
+                      justifyContent: "center"
+                    }
+                  }}
+                >
+                  {articles.map((article: LoadArticleList.Model) =>
+                    <ArticleItem key={article.id} article={article} />)
+                  }
+                </Wrap>
+              </>
+            )
+          : <ArticleItemEmpty />}
+      </Stack>
+    )
+  }
 
 export default List

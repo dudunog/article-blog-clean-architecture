@@ -9,8 +9,7 @@ interface ReduxStoreProviderProps {
 
 const store = makeReduxStateManager()
 
-const ReduxStoreProvider: React.FC<ReduxStoreProviderProps>
-  = ({ children }) => {
+const ReduxStoreProvider: React.FC<ReduxStoreProviderProps> = ({ children }) => {
   return (
     <Provider store={store.getStore()}>
       <PersistGate loading={null} persistor={store.persistStore()}>

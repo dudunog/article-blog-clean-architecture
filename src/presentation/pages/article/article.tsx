@@ -5,6 +5,7 @@ import { Loading, Navbar } from "@/presentation/components"
 import { Container } from "@chakra-ui/react"
 import { useParams } from "react-router-dom"
 import { ArticleData } from "@/presentation/pages/article/components"
+import { ArticleState } from "@/data/protocols/state-manager"
 
 export interface ArticleProps {
   loadArticle: LoadArticle
@@ -23,10 +24,10 @@ const Article: React.FC<ArticleProps> =
     isLoading,
     article,
     error
-  } = useAppSelector((state) => state.article)
+  }: ArticleState = useAppSelector((state) => state.article)
 
-  const load = () => {
-    loadArticle.load(id)
+  const load = async (): Promise<void> => {
+    await loadArticle.load(id)
   }
 
   useEffect(() => {
@@ -39,15 +40,17 @@ const Article: React.FC<ArticleProps> =
 
       <Container maxW="4xl" p="12">
         <Suspense fallback={<Loading />}>
-          {(isLoading) ? <Loading /> : (
-            error
-            ? "Unexpected Error"
-            : <ArticleData article={article} />
-          )}
+          {(isLoading && !article)
+            ? <Loading />
+            : (
+                error
+                  ? "Unexpected Error"
+                  : <ArticleData article={article} />
+              )}
         </Suspense>
       </Container>
     </>
   )
-}
+  }
 
 export default Article

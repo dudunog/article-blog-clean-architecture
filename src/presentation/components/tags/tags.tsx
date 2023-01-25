@@ -2,7 +2,7 @@ import React from "react"
 import { HStack, SpaceProps, Tag } from "@chakra-ui/react"
 
 interface TagsProps {
-  tags: Array<string>
+  tags: string[]
   marginTop?: SpaceProps["marginTop"]
 }
 

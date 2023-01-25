@@ -1,3 +1,5 @@
+import { ArticleModel } from "@/domain/models"
+
 export interface ArticleFiltersState {
   page: number
   search: string
@@ -6,8 +8,8 @@ export interface ArticleFiltersState {
 
 export interface ArticleState {
   isLoading: boolean
-  articles: object
-  article: object | null
+  articles: ArticleModel[]
+  article: ArticleModel | null
   error: object | null
   size: number
   sortBy: string | null

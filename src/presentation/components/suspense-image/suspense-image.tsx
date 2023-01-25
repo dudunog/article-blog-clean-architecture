@@ -7,7 +7,7 @@ import {
 
 const imgCache = {
   __cache: {},
-  read(src) {
+  read (src) {
     if (!this.__cache[src]) {
       this.__cache[src] = new Promise((resolve) => {
         const img = new Image()
@@ -29,8 +29,8 @@ const imgCache = {
 
 const SuspenseImg: ComponentWithAs<"img", ImageProps> =
   ({ src, ...rest }) => {
-  imgCache.read(src)
-  return <ChakraImage src={src} {...rest} />
-}
+    imgCache.read(src)
+    return <ChakraImage src={src} {...rest} />
+  }
 
 export default SuspenseImg

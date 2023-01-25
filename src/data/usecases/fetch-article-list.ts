@@ -7,11 +7,10 @@ export class RemoteFetchArticleList implements FetchArticleList {
   constructor (
     private readonly url: string,
     private readonly httpClient:
-      HttpClient<ArticleListHttpResponse<FetchArticleList.Model[]>>
+    HttpClient<ArticleListHttpResponse<FetchArticleList.Model[]>>
   ) {}
 
-  async fetchAll (query: string)
-  : Promise<ArticleListHttpResponse<FetchArticleList.Model[]>> {
+  async fetchAll (query: string): Promise<ArticleListHttpResponse<FetchArticleList.Model[]>> {
     const httpResponse = await this.httpClient.request({
       url: this.url + query,
       method: "get"

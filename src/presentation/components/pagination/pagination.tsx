@@ -4,7 +4,7 @@ import {
   Box,
   Stack,
   Text,
-  useColorModeValue,
+  useColorModeValue
 } from "@chakra-ui/react"
 
 interface PaginationProps {

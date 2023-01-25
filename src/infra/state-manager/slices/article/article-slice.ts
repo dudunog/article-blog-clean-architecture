@@ -1,6 +1,5 @@
-import { ISlice } from "@/data/protocols/state-manager"
+import { ISlice, ArticleState } from "@/data/protocols/state-manager"
 import { CaseReducerActions, createSlice, Slice } from "@reduxjs/toolkit"
-import { ArticleState } from "@/data/protocols/state-manager"
 import { articleReducers } from "@/infra/state-manager/reducers"
 
 const initialState: ArticleState = {
@@ -18,7 +17,7 @@ const initialState: ArticleState = {
 }
 
 export class ArticleSlice implements ISlice<ArticleState, typeof articleReducers, "article"> {
-  private articleSlice: Slice
+  private readonly articleSlice: Slice
 
   constructor () {
     const articleSlice = createSlice({

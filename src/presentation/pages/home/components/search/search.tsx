@@ -18,7 +18,7 @@ interface SearchProps {
   orderby: string
   setOrderby: React.Dispatch<React.SetStateAction<any>>
   disabledRelevance: boolean
-  load: (page: number, search: string, orderby: string) => void
+  load: (page: number, search: string, orderby: string) => Promise<void>
 }
 
 const Search: React.FC<SearchProps> = ({
@@ -36,27 +36,28 @@ const Search: React.FC<SearchProps> = ({
     setSearch(search)
   }
 
-  const handleFilterBySearch = () => {
+  const handleFilterBySearch = async (): Promise<void> => {
     setOrderby("")
 
-    if (search.length)
-      load(page, search, orderby)
-    else
+    if (search.length) {
+      await load(page, search, orderby)
+    } else {
       toast({
         title: "Digite no campo para poder buscar",
         status: "success",
         duration: 9000,
-        isClosable: true,
+        isClosable: true
       })
+    }
   }
 
-  const handleFilterByRelevance = () => {
+  const handleFilterByRelevance = async (): Promise<void> => {
     if (orderby === "relevance") {
       setOrderby("")
-      load(page, search, "")
+      await load(page, search, "")
     } else {
       setOrderby("relevance")
-      load(page, search, "relevance")
+      await load(page, search, "relevance")
     }
   }
 
@@ -75,7 +76,7 @@ const Search: React.FC<SearchProps> = ({
       />
 
       <Button
-        onClick={() => handleFilterBySearch()}
+        onClick={handleFilterBySearch}
         _hover={{
           bgColor: "blue.500",
           color: "white"
@@ -92,7 +93,7 @@ const Search: React.FC<SearchProps> = ({
           bg={orderby === "relevance" ? "blue.500" : useColorModeValue("gray.100", "whiteAlpha.200")}
           aria-label="Mais relevantes"
           icon={<UpDownIcon />}
-          onClick={() => handleFilterByRelevance()}
+          onClick={handleFilterByRelevance}
           isDisabled={disabledRelevance}
           _hover={{
             bgColor: "blue.500",

@@ -8,7 +8,7 @@ export class RemoteStoreArticle implements StoreArticle {
     private readonly articleSlices: ArticleSlicesType
   ) {}
 
-  async startLoading(): Promise<void> {
+  async startLoading (): Promise<void> {
     this.dispatch(this.articleSlices.startLoading())
   }
 

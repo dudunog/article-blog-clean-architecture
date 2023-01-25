@@ -1,5 +1,5 @@
 import { Reducer } from "react"
-import { CombinedState, Store } from "redux"
+import { CombinedState, Store, Unsubscribe } from "redux"
 import { IStateManager } from "@/data/protocols/state-manager"
 import { configureStore } from "@reduxjs/toolkit"
 import { rootPersistConfig } from "./persists/root-persist"
@@ -9,9 +9,8 @@ interface StoreData {
   rootReducer: Reducer<CombinedState<any>, any>
 }
 
-export class ReduxStore<ApplicationState>
-  implements IStateManager<ApplicationState, Store<ApplicationState>> {
-  private store: Store<ApplicationState>
+export class ReduxStore<ApplicationState> implements IStateManager<ApplicationState, Store<ApplicationState>> {
+  private readonly store: Store<ApplicationState>
 
   constructor (storeData: StoreData) {
     const { rootReducer } = storeData
@@ -28,11 +27,11 @@ export class ReduxStore<ApplicationState>
     this.store = store
   }
 
-  getStore(): Store<ApplicationState> {
+  getStore (): Store<ApplicationState> {
     return this.store
   }
 
-  getState(): ApplicationState {
+  getState (): ApplicationState {
     return this.store.getState()
   }
 
@@ -44,7 +43,7 @@ export class ReduxStore<ApplicationState>
     return persistStore(this.store)
   }
 
-  subscribe(cb: () => void) {
+  subscribe (cb: () => void): Unsubscribe {
     return this.store.subscribe(cb)
   }
 }

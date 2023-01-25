@@ -14,5 +14,5 @@ export const makeReduxStateManager = (): ReduxStore<StateType> =>
         articlePersistConfig,
         articleReducer
       )
+    })
   })
-})

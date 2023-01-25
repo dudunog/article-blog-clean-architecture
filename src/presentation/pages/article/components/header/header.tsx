@@ -5,7 +5,7 @@ import {
   Text,
   Link as LinkChakra,
   Divider,
-  Stack,
+  Stack
 } from "@chakra-ui/react"
 import { Tags } from "@/presentation/components"
 

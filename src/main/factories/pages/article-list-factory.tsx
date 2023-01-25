@@ -7,7 +7,7 @@ import {
 import { HomeProps } from "@/presentation/pages/home/home"
 
 const ArticleList: React.FC<HomeProps> =
-  Loadable(lazy(async () => import("@/presentation/pages/home/home")))
+  Loadable(lazy(async () => await import("@/presentation/pages/home/home")))
 
 export const makeArticleList: React.FC = () => {
   return (

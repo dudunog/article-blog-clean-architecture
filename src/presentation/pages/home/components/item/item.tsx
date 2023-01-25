@@ -6,7 +6,7 @@ import {
   Text,
   useColorModeValue,
   WrapItem,
-  Link as LinkChakra,
+  Link as LinkChakra
 } from "@chakra-ui/react"
 import { SuspenseImg, Tags } from "@/presentation/components"
 import ArticleImage from "@/presentation/assets/article.png"
@@ -40,7 +40,7 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ article }: ArticleItemProps) 
               width="100%"
               transition="0.3s ease-in-out"
               _hover={{
-                transform: "scale(1.05)",
+                transform: "scale(1.05)"
               }}
             />
           </LinkChakra>

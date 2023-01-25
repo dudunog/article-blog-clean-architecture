@@ -6,12 +6,12 @@ import {
   Stack,
   useColorMode,
   useColorModeValue
-} from "@chakra-ui/react";
+} from "@chakra-ui/react"
 import React, { memo } from "react"
 import { MoonIcon, SunIcon } from "@chakra-ui/icons"
 
 const Navbar: React.FC = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode, toggleColorMode } = useColorMode()
 
   return (
     <>

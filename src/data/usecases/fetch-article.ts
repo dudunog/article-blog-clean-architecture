@@ -18,7 +18,7 @@ export class RemoteFetchArticle implements FetchArticle {
 
     switch (httpResponse.statusCode) {
       case HttpStatusCode.ok:
-        return article as FetchArticle.Model
+        return article
       case HttpStatusCode.noContent:
         return null
       default:
