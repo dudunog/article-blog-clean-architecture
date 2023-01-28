@@ -5,10 +5,9 @@ import {
   makeRemoteLoadArticle,
   makeRemoteStoreArticle
 } from "@/main/factories/usecases"
-const articlePath = "@/presentation/pages/article/article"
 
-const Article: React.FC<ArticleProps> =
-  Loadable(lazy(async () => await import(articlePath)))
+// @ts-expect-error ignore
+const Article: React.FC<ArticleProps> = Loadable(lazy(async () => await import("@/presentation/pages/article/article")))
 
 export const makeArticle: React.FC = () => {
   return (

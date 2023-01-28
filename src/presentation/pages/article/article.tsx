@@ -6,6 +6,7 @@ import { Loading, Navbar } from "@/presentation/components"
 import { ArticleData } from "@/presentation/pages/article/components"
 import { Container } from "@chakra-ui/react"
 import { useParams } from "react-router-dom"
+import { ArticleDetailsModel } from "@/domain/models"
 
 export interface ArticleProps {
   loadArticle: LoadArticle
@@ -45,7 +46,7 @@ const Article: React.FC<ArticleProps> =
             : (
                 error
                   ? "Unexpected Error"
-                  : <ArticleData article={article} />
+                  : <ArticleData article={article as ArticleDetailsModel} />
               )}
         </Suspense>
       </Container>

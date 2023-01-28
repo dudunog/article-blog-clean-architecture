@@ -5,10 +5,9 @@ import {
   makeRemoteStoreArticleList
 } from "@/main/factories/usecases"
 import { HomeProps } from "@/presentation/pages/home/home"
-const homePath = "@/presentation/pages/home/home"
 
-const Home: React.FC<HomeProps> =
-  Loadable(lazy(async () => await import(homePath)))
+// @ts-expect-error ignore
+const Home: React.FC<HomeProps> = Loadable(lazy(async () => await import("@/presentation/pages/home/home")))
 
 export const makeHome: React.FC = () => {
   return (
