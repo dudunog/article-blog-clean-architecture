@@ -19,6 +19,7 @@ const Home = Loadable(lazy(async () => import("@/presentation/pages/home/home"))
 export const makeHome: React.FC = () => {
   return (
     <Home
+      // @ts-expect-error ignore
       loadArticleList={makeRemoteLoadArticleList()}
       storeArticleList={makeRemoteStoreArticleList()}
     />

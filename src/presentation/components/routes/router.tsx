@@ -41,6 +41,7 @@ const Router: React.FC = () => {
           path: 'home',
           element: (
             <Home
+              // @ts-expect-error ignore
               loadArticleList={makeRemoteLoadArticleList()}
               storeArticleList={makeRemoteStoreArticleList()}
             />

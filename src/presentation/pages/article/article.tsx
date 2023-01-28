@@ -12,8 +12,7 @@ export interface ArticleProps {
   storeArticle: StoreArticle
 }
 
-const Article: React.FC<ArticleProps> =
-  ({ loadArticle }) => {
+const Article: React.FC<ArticleProps> = ({ loadArticle }) => {
   type Props = {
     id: string
   }
@@ -38,17 +37,15 @@ const Article: React.FC<ArticleProps> =
     <>
       <Container maxW="4xl" p="12">
         <Suspense fallback={<Loading />}>
-          {(isLoading && !article)
-            ? <Loading />
-            : (
-                error
-                  ? "Aconteceu um erro inesperado"
-                  : <ArticleData article={article} />
-              )}
+          <>
+            {(isLoading && !article) ?? <Loading />}
+            {error ?? "Aconteceu um erro inesperado"}
+            {(article != null) ? <ArticleData article={article} /> : ""}
+          </>
         </Suspense>
       </Container>
     </>
   )
-  }
+}
 
 export default Article
