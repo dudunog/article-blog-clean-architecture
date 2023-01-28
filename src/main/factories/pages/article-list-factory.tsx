@@ -1,13 +1,20 @@
-import React, { lazy } from "react"
-import { Loadable } from "@/presentation/components"
+import React, { lazy, LazyExoticComponent, Suspense } from "react"
+// import { Loadable } from "@/presentation/components"
 import {
   makeRemoteLoadArticleList,
   makeRemoteStoreArticleList
 } from "@/main/factories/usecases"
-import { HomeProps } from "@/presentation/pages/home/home"
+
+const Loadable = (Component: LazyExoticComponent<React.FC>): React.FC => (props: any) => {
+  return (
+    <Suspense>
+      <Component {...props} />
+    </Suspense>
+  )
+}
 
 // @ts-expect-error ignore
-const Home: React.FC<HomeProps> = Loadable(lazy(async () => await import("@/presentation/pages/home/home")))
+const Home = Loadable(lazy(async () => import("@/presentation/pages/home/home")))
 
 export const makeHome: React.FC = () => {
   return (
@@ -17,3 +24,5 @@ export const makeHome: React.FC = () => {
     />
   )
 }
+
+// const Login = Loadable(lazy(async () => import('@/pages/Login/Login')))

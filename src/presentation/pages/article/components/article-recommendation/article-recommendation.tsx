@@ -34,23 +34,23 @@ const ArticleRecommendation: React.FC<ArticleRecommendationProps> = ({
         <Image
           objectFit="cover"
           maxW={{ base: "100%", sm: "200px" }}
-          src={nextArticle.featured_media?.medium_large || ArticleImage}
+          src={nextArticle?.featured_media?.medium_large || ArticleImage}
           alt="Caffe Latte"
         />
 
         <Stack>
           <CardBody>
-            <Heading size="md">{nextArticle.title}</Heading>
+            <Heading size="md">{nextArticle?.title || "Sem título"}</Heading>
 
             <Text py="2">
-              {nextArticle.headline || "Sem descrição"}
+              {nextArticle?.headline || "Sem descrição"}
             </Text>
           </CardBody>
 
           <CardFooter>
             <Link
               textDecoration="none"
-              href={`/article/${nextArticle.id}`}
+              href={`/article/${nextArticle?.id}`}
               _hover={{ textDecoration: "none" }}
             >
               <Button variant="solid" colorScheme="blue">

@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState } from "react"
-import { Navbar, Loading } from "@/presentation/components"
+import { Loading } from "@/presentation/components"
 import { ArticleListItem, Search } from "@/presentation/pages/home/components"
 import { useAppSelector } from "@/main/providers/redux-store-provider"
 import { LoadArticleList, StoreArticleList } from "@/domain/usecases"
@@ -39,8 +39,6 @@ const Home: React.FC<HomeProps> =
 
     return (
     <>
-      <Navbar />
-
       <Container maxW="7xl" p="12">
         <Search
           page={page}
