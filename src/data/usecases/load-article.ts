@@ -1,5 +1,4 @@
 import {
-  LoadArticleList,
   LoadArticle,
   FetchArticle,
   StoreArticle
@@ -11,7 +10,7 @@ export class RemoteLoadArticle implements LoadArticle {
     private readonly storeArticle: StoreArticle
   ) {}
 
-  async load (id: string): Promise<LoadArticleList.Model> {
+  async load (id: string): Promise<LoadArticle.Model> {
     try {
       await this.storeArticle.startLoading()
       const article = await this.fetchArticle.fetch(`/${id}`)
