@@ -1,13 +1,10 @@
 import React from "react"
+import { Tags } from "@/presentation/components"
 import {
   Box,
   Heading,
-  Text,
-  Link as LinkChakra,
-  Divider,
-  Stack
+  Text
 } from "@chakra-ui/react"
-import { Tags } from "@/presentation/components"
 
 interface ArticleHeaderProps {
   title: string
@@ -27,9 +24,7 @@ const ArticleHeader: React.FC<ArticleHeaderProps> = ({
       <Tags tags={categories?.map(c => c.name)} marginTop="3" />
       <Box>
         <Heading fontSize="3xl" marginTop="2">
-          <LinkChakra textDecoration="none" _hover={{ textDecoration: "none" }}>
-            {title || "Untitled"}
-          </LinkChakra>
+          {title || "Untitled"}
         </Heading>
       </Box>
       <Box>
@@ -39,11 +34,8 @@ const ArticleHeader: React.FC<ArticleHeaderProps> = ({
           </Text>
         </Box>
       </Box>
-      <Box mt={8}>
-        <Stack direction="row" h="60px" gap={3}>
-          <Divider orientation="vertical" bg="blue.500" />
-          <Text>{headline}</Text>
-        </Stack>
+      <Box mt={8} mb={8} borderLeft="2px" borderColor="blue.500" pl={6}>
+        <Text pb={1}>{headline || "Sem descrição"}</Text>
       </Box>
     </Box>
   )

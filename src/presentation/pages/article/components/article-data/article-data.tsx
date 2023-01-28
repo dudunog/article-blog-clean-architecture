@@ -1,10 +1,10 @@
 import React from "react"
 import { ArticleAuthor, ArticleHeader, ArticleImage } from "@/presentation/pages/article/components"
-import { ArticleModel } from "@/domain/models"
+import { ArticleDetailsModel } from "@/domain/models"
 import ArticleContent from "../article-content/article-content"
 
 interface ArticleDataProps {
-  article: ArticleModel
+  article: ArticleDetailsModel
 }
 
 const ArticleData: React.FC<ArticleDataProps> = ({

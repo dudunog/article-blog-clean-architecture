@@ -13,7 +13,6 @@ const ArticleImage: React.FC<ArticleImageProps> = ({
 }) => {
   return (
     <SuspenseImg
-      mt={6}
       src={image || ArticleImg}
       alt={alt}
       objectFit="contain"

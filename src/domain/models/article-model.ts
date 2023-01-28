@@ -29,3 +29,20 @@ export type ArticleModel = {
   published: Date
   modified: Date
 }
+
+type ArticleAuthor = {
+  description: string
+  id: number
+  link: string
+  name: string
+  permalink: string
+  picture: string
+  profession: string
+  slug: string
+}
+
+export interface ArticleDetailsModel extends ArticleModel {
+  author: ArticleAuthor
+  bibliography: string
+  content: string
+}
