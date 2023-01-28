@@ -4,6 +4,7 @@ import tsconfigPaths from "vite-tsconfig-paths"
 import * as path from "path"
 
 const root = path.resolve(__dirname, "./src")
+const tests = path.resolve(__dirname, "./tests")
 
 export default defineConfig(({ mode }) => {
   process.env = {...process.env, ...loadEnv(mode, process.cwd())};
@@ -27,6 +28,7 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         "@/*": path.resolve(root, "*"),
+        "@tests/*": path.resolve(tests, "*")
       }
     }
   }
