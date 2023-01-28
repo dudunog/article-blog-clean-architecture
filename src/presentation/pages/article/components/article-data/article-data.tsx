@@ -1,7 +1,14 @@
 import React from "react"
-import { ArticleAuthor, ArticleBibliography, ArticleHeader, ArticleImage } from "@/presentation/pages/article/components"
 import { ArticleDetailsModel } from "@/domain/models"
-import ArticleContent from "../article-content/article-content"
+import {
+  ArticleAuthor,
+  ArticleBibliography,
+  ArticleHeader,
+  ArticleImage,
+  ArticleContent,
+  ArticleRecommendation
+} from "@/presentation/pages/article/components"
+import { Divider } from "@chakra-ui/react"
 
 interface ArticleDataProps {
   article: ArticleDetailsModel
@@ -33,6 +40,10 @@ const ArticleData: React.FC<ArticleDataProps> = ({
         authorName={article?.author?.name}
         authorProfession={article?.author?.profession}
       />
+
+      <Divider bgColor="blue.500" height="2px" />
+
+      <ArticleRecommendation nextArticle={article.next_post} />
     </>
   )
 }

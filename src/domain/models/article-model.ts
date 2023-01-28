@@ -41,8 +41,21 @@ type ArticleAuthor = {
   slug: string
 }
 
+export type ArticleNextPost = {
+  id: number
+  slug: string
+  link: string
+  permalink: string
+  title: string
+  headline: string
+  excerpt: string
+  featured_media: FeaturedMediaModel
+  categories: CategoryModel[]
+}
+
 export interface ArticleDetailsModel extends ArticleModel {
   author: ArticleAuthor
   bibliography: string
   content: string
+  next_post: ArticleNextPost
 }

@@ -20,6 +20,7 @@ const ArticleAuthor: React.FC<ArticleAuthorProps> = ({
       </Heading>
       <Card
         mt={5}
+        mb={20}
         w="full"
         direction={{ base: "column", sm: "row" }}
         overflow="hidden"

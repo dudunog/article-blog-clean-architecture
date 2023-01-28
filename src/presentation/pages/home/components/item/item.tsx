@@ -1,5 +1,7 @@
 import React from "react"
 import { LoadArticleList } from "@/domain/usecases"
+import { SuspenseImg, Tags } from "@/presentation/components"
+import ArticleImage from "@/presentation/assets/article.png"
 import {
   Box,
   Heading,
@@ -8,8 +10,6 @@ import {
   WrapItem,
   Link as LinkChakra
 } from "@chakra-ui/react"
-import { SuspenseImg, Tags } from "@/presentation/components"
-import ArticleImage from "@/presentation/assets/article.png"
 
 interface ArticleItemProps {
   article: LoadArticleList.Model
@@ -28,8 +28,8 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ article }: ArticleItemProps) 
         <Box borderRadius="lg" overflow="hidden">
           <LinkChakra
             textDecoration="none"
-            _hover={{ textDecoration: "none" }}
             href={`/article/${article.id}`}
+            _hover={{ textDecoration: "none" }}
           >
             <SuspenseImg
               maxH={247}
@@ -50,8 +50,8 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ article }: ArticleItemProps) 
           <Heading fontSize="xl" marginTop="2">
             <LinkChakra
               textDecoration="none"
-              _hover={{ textDecoration: "none" }}
               href={`/article/${article.id}`}
+              _hover={{ textDecoration: "none" }}
             >
               {article.title || "Untitled"}
             </LinkChakra>
