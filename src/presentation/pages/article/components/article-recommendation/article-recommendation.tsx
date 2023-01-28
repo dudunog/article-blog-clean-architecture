@@ -11,6 +11,7 @@ import {
   Stack,
   Text
 } from "@chakra-ui/react"
+import ArticleImage from "@/presentation/assets/article.png"
 
 interface ArticleRecommendationProps {
   nextArticle: ArticleNextPost
@@ -33,7 +34,7 @@ const ArticleRecommendation: React.FC<ArticleRecommendationProps> = ({
         <Image
           objectFit="cover"
           maxW={{ base: "100%", sm: "200px" }}
-          src={nextArticle.featured_media.medium_large}
+          src={nextArticle.featured_media?.medium_large || ArticleImage}
           alt="Caffe Latte"
         />
 
@@ -42,7 +43,7 @@ const ArticleRecommendation: React.FC<ArticleRecommendationProps> = ({
             <Heading size="md">{nextArticle.title}</Heading>
 
             <Text py="2">
-              {nextArticle.headline}
+              {nextArticle.headline || "Sem descrição"}
             </Text>
           </CardBody>
 

@@ -1,7 +1,6 @@
 import React from "react"
 import { LoadArticleList } from "@/domain/usecases"
 import { SuspenseImg, Tags } from "@/presentation/components"
-import ArticleImage from "@/presentation/assets/article.png"
 import {
   Box,
   Heading,
@@ -10,6 +9,7 @@ import {
   WrapItem,
   Link as LinkChakra
 } from "@chakra-ui/react"
+import ArticleImage from "@/presentation/assets/article.png"
 
 interface ArticleItemProps {
   article: LoadArticleList.Model
