@@ -1,5 +1,5 @@
 import React from "react"
-import { ArticleAuthor, ArticleHeader, ArticleImage } from "@/presentation/pages/article/components"
+import { ArticleAuthor, ArticleBibliography, ArticleHeader, ArticleImage } from "@/presentation/pages/article/components"
 import { ArticleDetailsModel } from "@/domain/models"
 import ArticleContent from "../article-content/article-content"
 
@@ -25,6 +25,8 @@ const ArticleData: React.FC<ArticleDataProps> = ({
       />
 
       <ArticleContent content={article?.content} />
+
+      <ArticleBibliography bibliography={article.bibliography} />
 
       <ArticleAuthor
         authorImage={article?.author?.picture}
