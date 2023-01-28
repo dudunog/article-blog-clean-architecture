@@ -9,7 +9,7 @@ export interface ArticleFiltersState {
 export interface ArticleState {
   isLoading: boolean
   articles: ArticleModel[]
-  article: ArticleDetailsModel | null
+  article: ArticleDetailsModel
   error: object | null
   size: number
   sortBy: string | null

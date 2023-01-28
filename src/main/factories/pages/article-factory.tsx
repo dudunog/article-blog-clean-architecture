@@ -5,9 +5,10 @@ import {
   makeRemoteLoadArticle,
   makeRemoteStoreArticle
 } from "@/main/factories/usecases"
+const articlePath = "@/presentation/pages/article/article"
 
 const Article: React.FC<ArticleProps> =
-  Loadable(lazy(async () => await import("@/presentation/pages/article/article")))
+  Loadable(lazy(async () => await import(articlePath)))
 
 export const makeArticle: React.FC = () => {
   return (

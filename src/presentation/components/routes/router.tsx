@@ -1,6 +1,11 @@
 import React from "react"
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom"
 import { makeHome, makeArticle } from "@/main/factories/pages"
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Navigate
+} from "react-router-dom"
 
 const Router: React.FC = () => {
   return (

@@ -9,13 +9,13 @@ export class RemoteLoadArticleList implements LoadArticleList {
     private readonly storeArticleList: StoreArticleList
   ) {}
 
-  async loadAll (filters: ArticleFiltersState): Promise<LoadArticleList.Model[]> {
+  async loadAll (filters: ArticleFiltersState): Promise<LoadArticleList.Model[] | undefined> {
     try {
       await this.storeArticleList.startLoading()
       const articles = await this.fetchArticleList.fetchAll(makeApiQuery(filters))
       await this.storeArticleList.store(articles)
 
-      return articles.data
+      return articles?.data
     } catch (error) {
       await this.storeArticleList.error(error)
     }

@@ -5,12 +5,13 @@ import {
   Heading,
   Text
 } from "@chakra-ui/react"
+import { CategoryModel } from "@/domain/models"
 
 interface ArticleHeaderProps {
   title: string
   published: Date
   headline: string
-  categories: any
+  categories: CategoryModel[]
 }
 
 const ArticleHeader: React.FC<ArticleHeaderProps> = ({

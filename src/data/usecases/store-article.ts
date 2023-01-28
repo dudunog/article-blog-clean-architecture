@@ -16,7 +16,7 @@ export class RemoteStoreArticle implements StoreArticle {
     this.dispatch(this.articleSlices.getArticleSuccess(payload))
   }
 
-  async error (error): Promise<void> {
+  async error (error: any): Promise<void> {
     this.dispatch(this.articleSlices.hasError(error))
   }
 }

@@ -5,9 +5,10 @@ import {
   makeRemoteStoreArticleList
 } from "@/main/factories/usecases"
 import { HomeProps } from "@/presentation/pages/home/home"
+const homePath = "@/presentation/pages/home/home"
 
 const Home: React.FC<HomeProps> =
-  Loadable(lazy(async () => await import("@/presentation/pages/home/home")))
+  Loadable(lazy(async () => await import(homePath)))
 
 export const makeHome: React.FC = () => {
   return (
