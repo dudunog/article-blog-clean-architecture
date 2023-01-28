@@ -1,4 +1,4 @@
-import { ArticleModel } from "@/domain/models"
+import { ArticleDetailsModel, ArticleModel } from "@/domain/models"
 
 export interface ArticleFiltersState {
   page: number
@@ -9,7 +9,7 @@ export interface ArticleFiltersState {
 export interface ArticleState {
   isLoading: boolean
   articles: ArticleModel[]
-  article: ArticleModel | null
+  article: ArticleDetailsModel | null
   error: object | null
   size: number
   sortBy: string | null
