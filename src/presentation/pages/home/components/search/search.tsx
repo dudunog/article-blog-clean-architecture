@@ -1,5 +1,7 @@
 import React from "react"
 import {
+  AlertStatus,
+  Box,
   Button,
   IconButton,
   Input,
@@ -36,18 +38,22 @@ const Search: React.FC<SearchProps> = ({
     setSearch(search)
   }
 
+  const showToast = (title: string, status: AlertStatus): void => {
+    toast({
+      title,
+      status,
+      duration: 9000,
+      isClosable: true
+    })
+  }
+
   const handleFilterBySearch = (): void => {
     setOrderby("")
 
     if (search.length) {
       load(page, search, orderby)
     } else {
-      toast({
-        title: "Digite no campo para poder buscar",
-        status: "success",
-        duration: 9000,
-        isClosable: true
-      })
+      showToast("Digite no campo para poder buscar", "success")
     }
   }
 
@@ -62,11 +68,16 @@ const Search: React.FC<SearchProps> = ({
   }
 
   return (
-    <InputGroup gap="1rem" m="auto" maxW={1500}>
+    <InputGroup
+      m="auto"
+      maxW={1500}
+      display="flex"
+      gap="1rem"
+      flexDirection={{ base: "column", sm: "row" }}
+    >
       <InputLeftElement pointerEvents="none">
         <SearchIcon color="#c2c2c2" />
       </InputLeftElement>
-
       <Input
         type="text"
         placeholder="Busca"
@@ -75,32 +86,41 @@ const Search: React.FC<SearchProps> = ({
         onChange={(e) => handleSearch(e.target.value)}
       />
 
-      <Button
-        onClick={handleFilterBySearch}
-        _hover={{
-          bgColor: "blue.500",
-          color: "white"
-        }}
+      <Box
+        w="auto"
+        display="flex"
+        gap={3}
+        justifyContent={{ base: "center", sm: "flex-end" }}
       >
-        Buscar
-      </Button>
-
-      <Tooltip
-        hasArrow
-        label="Mais relevantes"
-      >
-        <IconButton
-          bg={orderby === "relevance" ? "blue.500" : useColorModeValue("gray.100", "whiteAlpha.200")}
-          aria-label="Mais relevantes"
-          icon={<UpDownIcon />}
-          onClick={() => handleFilterByRelevance()}
-          isDisabled={disabledRelevance}
+        <Button
+          onClick={handleFilterBySearch}
+          w={{ base: "50%", sm: "auto" }}
           _hover={{
             bgColor: "blue.500",
             color: "white"
           }}
-        />
-      </Tooltip>
+        >
+          Buscar
+        </Button>
+
+        <Tooltip
+          hasArrow
+          label="Mais relevantes"
+        >
+          <IconButton
+            w={{ base: "50%", sm: "auto" }}
+            bg={orderby === "relevance" ? "blue.500" : useColorModeValue("gray.100", "whiteAlpha.200")}
+            aria-label="Mais relevantes"
+            icon={<UpDownIcon />}
+            onClick={() => handleFilterByRelevance()}
+            isDisabled={disabledRelevance}
+            _hover={{
+              bgColor: "blue.500",
+              color: "white"
+            }}
+          />
+        </Tooltip>
+      </Box>
     </InputGroup>
   )
 }

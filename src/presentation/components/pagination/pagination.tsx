@@ -52,10 +52,12 @@ const Pagination: React.FC<PaginationProps> = ({
   return (
     <Stack
       direction="row"
-      mt="14"
-      spacing="6"
+      mt={14}
+      pb={4}
       justifyContent="space-between"
       alignItems="center"
+      gap={3}
+      flexDirection={{ base: "column", md: "row" }}
     >
       <Box>
         <strong>{lastItem === 0 ? 0 : initialItem}</strong> - <strong>{lastItem}</strong>{" "}
