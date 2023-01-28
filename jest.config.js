@@ -13,7 +13,7 @@ module.exports = {
   ],
   testEnvironment: "jsdom",
   transform: {
-    ".+\\.(ts|tsx)$": "ts-jest"
+    ".+\\.ts$": "ts-jest"
   },
   moduleNameMapper: {
     "@/tests/(.*)": "<rootDir>/tests/$1",
