@@ -1,9 +1,15 @@
 {
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "extends": [
     "standard-with-typescript"
   ],
+  "plugins": ["react"],
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": ["./tsconfig.json"]
   },
   "rules": {
     "@typescript-eslint/consistent-type-definitions": "off",
