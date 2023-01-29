@@ -47,6 +47,7 @@ const ArticleRecommendation: React.FC<ArticleRecommendationProps> = ({
           alt="Caffe Latte"
           alignSelf="center"
           boxSize="180px"
+          loading="lazy"
         />
 
         <Stack>

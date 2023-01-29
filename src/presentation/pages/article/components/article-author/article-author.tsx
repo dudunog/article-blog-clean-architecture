@@ -34,6 +34,7 @@ const ArticleAuthor: React.FC<ArticleAuthorProps> = ({
             alt={authorName}
             borderRadius="full"
             objectFit="contain"
+            loading="lazy"
           />
           <Stack justifyContent="center">
             <Text mb={-1}>

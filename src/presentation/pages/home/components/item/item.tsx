@@ -36,6 +36,7 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ article }: ArticleItemProps) 
               width="100%"
               height="100%"
               transition="0.3s ease-in-out"
+              loading="lazy"
               _hover={{
                 transform: "scale(1.05)"
               }}

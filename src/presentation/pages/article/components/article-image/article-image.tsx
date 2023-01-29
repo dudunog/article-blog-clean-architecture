@@ -18,6 +18,7 @@ const ArticleImage: React.FC<ArticleImageProps> = ({
       objectFit="contain"
       width="100%"
       height="100%"
+      loading="lazy"
     />
   )
 }
