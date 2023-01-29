@@ -17,6 +17,7 @@ const ArticleImage: React.FC<ArticleImageProps> = ({
       alt={alt}
       objectFit="contain"
       width="100%"
+      height="100%"
     />
   )
 }

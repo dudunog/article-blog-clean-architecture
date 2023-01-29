@@ -34,6 +34,7 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ article }: ArticleItemProps) 
               alt={article.title}
               objectFit="contain"
               width="100%"
+              height="100%"
               transition="0.3s ease-in-out"
               _hover={{
                 transform: "scale(1.05)"

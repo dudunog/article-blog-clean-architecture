@@ -1,5 +1,6 @@
 import React from "react"
 import { ArticleNextPost } from "@/domain/models"
+import { SuspenseImg } from "@/presentation/components"
 import { Link, useNavigate } from "react-router-dom"
 import {
   Button,
@@ -7,7 +8,6 @@ import {
   CardBody,
   CardFooter,
   Heading,
-  Image,
   Stack,
   Text
 } from "@chakra-ui/react"
@@ -40,11 +40,13 @@ const ArticleRecommendation: React.FC<ArticleRecommendationProps> = ({
         overflow="hidden"
         variant="outline"
       >
-        <Image
+        <SuspenseImg
           objectFit="cover"
           maxW={{ base: "100%", sm: "200px" }}
           src={nextArticle?.featured_media?.medium_large || ArticleImage}
           alt="Caffe Latte"
+          alignSelf="center"
+          boxSize="180px"
         />
 
         <Stack>
