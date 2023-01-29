@@ -25,12 +25,12 @@ const Article: React.FC<ArticleProps> = ({ loadArticle }) => {
     error
   }: ArticleState = useAppSelector((state) => state.article)
 
-  const load = async (): Promise<void> => {
-    await loadArticle.load(id as string)
+  const load = async (id: string): Promise<void> => {
+    await loadArticle.load(id)
   }
 
   useEffect(() => {
-    load()
+    load(id as string)
   }, [])
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const Article: React.FC<ArticleProps> = ({ loadArticle }) => {
           <>
             {isLoading && <Loading />}
             {error && "Aconteceu um erro inesperado"}
-            {(article != null) ? <ArticleData article={article} load={load} /> : ""}
+            {article ? <ArticleData article={article} load={load} /> : ""}
           </>
         </Suspense>
       </Container>

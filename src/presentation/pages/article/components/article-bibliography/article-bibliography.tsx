@@ -17,7 +17,12 @@ const ArticleBibliography: React.FC<ArticleBibliographyProps> = ({
   bibliography
 }) => {
   return (
-    <Accordion mt={10} defaultIndex={[0]} allowMultiple>
+    <Accordion
+      id="bibliography"
+      mt={10}
+      defaultIndex={[0]}
+      allowMultiple
+    >
       <AccordionItem>
         <h2>
           <AccordionButton>
@@ -34,6 +39,7 @@ const ArticleBibliography: React.FC<ArticleBibliographyProps> = ({
             color="gray.500"
             dangerouslySetInnerHTML={{ __html: bibliography }}
           />
+          {!bibliography && "Sem bibliografia"}
         </AccordionPanel>
       </AccordionItem>
     </Accordion>

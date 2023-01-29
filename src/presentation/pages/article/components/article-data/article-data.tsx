@@ -12,7 +12,7 @@ import { Divider } from "@chakra-ui/react"
 
 interface ArticleDataProps {
   article: ArticleDetailsModel
-  load: () => Promise<void>
+  load: (id: string) => Promise<void>
 }
 
 const ArticleData: React.FC<ArticleDataProps> = ({

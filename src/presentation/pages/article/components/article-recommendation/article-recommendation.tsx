@@ -15,7 +15,7 @@ import ArticleImage from "@/presentation/assets/article.png"
 
 interface ArticleRecommendationProps {
   nextArticle: ArticleNextPost
-  load: () => Promise<void>
+  load: (id: string) => Promise<void>
 }
 
 const ArticleRecommendation: React.FC<ArticleRecommendationProps> = ({
@@ -25,8 +25,8 @@ const ArticleRecommendation: React.FC<ArticleRecommendationProps> = ({
   const navigate = useNavigate()
 
   const handleNavigateToArticle = (): void => {
-    navigate(`article/${nextArticle?.id}`)
-    load()
+    navigate(`article/${nextArticle?.id}#title`)
+    load(String(nextArticle?.id))
   }
 
   return (
@@ -58,7 +58,11 @@ const ArticleRecommendation: React.FC<ArticleRecommendationProps> = ({
 
           <CardFooter>
             <Link to={`/article/${nextArticle?.id}`}>
-              <Button variant="solid" colorScheme="blue" onClick={handleNavigateToArticle}>
+              <Button
+                variant="solid"
+                colorScheme="blue"
+                onClick={handleNavigateToArticle}
+              >
                 Visualizar
               </Button>
             </Link>

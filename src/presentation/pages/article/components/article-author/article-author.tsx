@@ -1,6 +1,7 @@
 import React from "react"
 import { Box, Card, Heading, Stack, Text } from "@chakra-ui/react"
 import { SuspenseImg } from "@/presentation/components"
+import ArticleImg from "@/presentation/assets/article.png"
 
 interface ArticleAuthorProps {
   authorImage: string
@@ -15,7 +16,7 @@ const ArticleAuthor: React.FC<ArticleAuthorProps> = ({
 }) => {
   return (
     <>
-      <Heading fontSize="3xl" mt={10}>
+      <Heading id="writtenBy" fontSize="3xl" mt={10}>
         Escrito por
       </Heading>
       <Card
@@ -29,7 +30,7 @@ const ArticleAuthor: React.FC<ArticleAuthorProps> = ({
         <Box display="flex" my={5} mx={3} gap={2}>
           <SuspenseImg
             boxSize="70px"
-            src={authorImage || ""}
+            src={authorImage || ArticleImg}
             alt={authorName}
             borderRadius="full"
             objectFit="contain"

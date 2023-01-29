@@ -9,7 +9,7 @@ const ArticleData: React.FC<ArticleDataProps> = ({
   content
 }) => {
   return (
-    <Box mt={6}>
+    <Box id="content" mt={6}>
       <Text
         fontSize="md"
         color="gray.500"

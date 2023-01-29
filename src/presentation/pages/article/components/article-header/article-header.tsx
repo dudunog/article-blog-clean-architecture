@@ -2,6 +2,9 @@ import React from "react"
 import { Tags } from "@/presentation/components"
 import {
   Box,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
   Heading,
   Text
 } from "@chakra-ui/react"
@@ -21,8 +24,27 @@ const ArticleHeader: React.FC<ArticleHeaderProps> = ({
   categories
 }) => {
   return (
-    <Box borderRadius="lg" overflow="hidden">
+    <Box id="title" borderRadius="lg" overflow="hidden">
+      <Breadcrumb>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="#title">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+
+        <BreadcrumbItem>
+          <BreadcrumbLink href="#content">Conteúdo</BreadcrumbLink>
+        </BreadcrumbItem>
+
+        <BreadcrumbItem>
+          <BreadcrumbLink href="#bibliography">Bibliografia</BreadcrumbLink>
+        </BreadcrumbItem>
+
+        <BreadcrumbItem>
+          <BreadcrumbLink href="#writtenBy">Autor</BreadcrumbLink>
+        </BreadcrumbItem>
+      </Breadcrumb>
+
       <Tags tags={categories?.map(c => c.name)} marginTop="3" />
+
       <Box>
         <Heading fontSize="3xl" marginTop="2">
           {title || "Untitled"}
