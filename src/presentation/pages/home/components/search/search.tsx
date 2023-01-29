@@ -95,6 +95,7 @@ const Search: React.FC<SearchProps> = ({
         <Button
           onClick={handleFilterBySearch}
           w={{ base: "50%", sm: "auto" }}
+          aria-label="Buscar"
           _hover={{
             bgColor: "blue.500",
             color: "white"

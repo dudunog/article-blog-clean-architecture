@@ -63,6 +63,7 @@ const ArticleRecommendation: React.FC<ArticleRecommendationProps> = ({
               <Button
                 variant="solid"
                 colorScheme="blue"
+                aria-label="Visualizar"
                 onClick={handleNavigateToArticle}
               >
                 Visualizar

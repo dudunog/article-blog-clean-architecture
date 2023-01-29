@@ -21,6 +21,7 @@ export const PaginationItem: React.FC<PaginationItemProps> = ({
         disabled
         color="white"
         bg="blue.800"
+        aria-label="Página atual"
         _disabled={{
           bgColor: "gray.800",
           cursor: "default"
@@ -39,6 +40,7 @@ export const PaginationItem: React.FC<PaginationItemProps> = ({
       size="sm"
       fontSize="xs"
       width="4"
+      aria-label="Página"
       _hover={{
         bgColor: "blue.500",
         color: "white"

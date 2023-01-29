@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
 
           <Flex alignItems="center">
             <Stack direction="row" spacing={7}>
-              <Button onClick={toggleColorMode}>
+              <Button onClick={toggleColorMode} aria-label="Mudar tema">
                 {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
               </Button>
             </Stack>
