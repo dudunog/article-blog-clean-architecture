@@ -3,7 +3,7 @@ import { CaseReducerActions, createSlice, Slice } from "@reduxjs/toolkit"
 import { articleReducers } from "@/infra/state-manager/reducers"
 
 const initialState: ArticleState = {
-  isLoading: true,
+  isLoading: false,
   articles: [],
   article: null,
   error: null,

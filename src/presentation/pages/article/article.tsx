@@ -33,14 +33,19 @@ const Article: React.FC<ArticleProps> = ({ loadArticle }) => {
     load()
   }, [])
 
+  useEffect(() => {
+    console.log("isLoading")
+    console.log(isLoading)
+  }, [isLoading])
+
   return (
     <>
       <Container maxW="4xl" p="12">
         <Suspense fallback={<Loading />}>
           <>
-            {(isLoading && !article) ?? <Loading />}
-            {error ?? "Aconteceu um erro inesperado"}
-            {(article != null) ? <ArticleData article={article} /> : ""}
+            {isLoading && <Loading />}
+            {error && "Aconteceu um erro inesperado"}
+            {(article != null) ? <ArticleData article={article} load={load} /> : ""}
           </>
         </Suspense>
       </Container>

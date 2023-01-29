@@ -12,6 +12,7 @@ export class RemoteLoadArticle implements LoadArticle {
 
   async load (id: string): Promise<LoadArticle.Model | null | undefined> {
     try {
+      await this.storeArticle.store(null)
       await this.storeArticle.startLoading()
       const article = await this.fetchArticle.fetch(`/${id}`)
       await this.storeArticle.store(article)

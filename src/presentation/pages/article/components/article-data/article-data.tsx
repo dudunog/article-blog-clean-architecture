@@ -12,10 +12,12 @@ import { Divider } from "@chakra-ui/react"
 
 interface ArticleDataProps {
   article: ArticleDetailsModel
+  load: () => Promise<void>
 }
 
 const ArticleData: React.FC<ArticleDataProps> = ({
-  article
+  article,
+  load
 }) => {
   return (
     <>
@@ -43,7 +45,10 @@ const ArticleData: React.FC<ArticleDataProps> = ({
 
       <Divider bgColor="blue.500" height="2px" />
 
-      <ArticleRecommendation nextArticle={article.next_post} />
+      <ArticleRecommendation
+        nextArticle={article.next_post}
+        load={load}
+      />
     </>
   )
 }

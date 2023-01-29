@@ -21,7 +21,7 @@ const ArticleBibliography: React.FC<ArticleBibliographyProps> = ({
       <AccordionItem>
         <h2>
           <AccordionButton>
-            <Box as="span" flex='1' textAlign='left'>
+            <Box as="span" flex="1" textAlign="left">
               Bibliografia
             </Box>
             <AccordionIcon />

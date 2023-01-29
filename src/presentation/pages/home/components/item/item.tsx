@@ -1,13 +1,13 @@
 import React from "react"
 import { LoadArticleList } from "@/domain/usecases"
 import { SuspenseImg, Tags } from "@/presentation/components"
+import { Link } from "react-router-dom"
 import {
   Box,
   Heading,
   Text,
   useColorModeValue,
-  WrapItem,
-  Link as LinkChakra
+  WrapItem
 } from "@chakra-ui/react"
 import ArticleImage from "@/presentation/assets/article.png"
 
@@ -26,11 +26,7 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ article }: ArticleItemProps) 
     >
       <Box w="100%">
         <Box borderRadius="lg" overflow="hidden">
-          <LinkChakra
-            textDecoration="none"
-            href={`/article/${article.id}`}
-            _hover={{ textDecoration: "none" }}
-          >
+          <Link to={`/article/${article.id}`}>
             <SuspenseImg
               maxH={247}
               transform="scale(1.0)"
@@ -43,18 +39,14 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ article }: ArticleItemProps) 
                 transform: "scale(1.05)"
               }}
             />
-          </LinkChakra>
+          </Link>
         </Box>
         <Box px={5} py={1} pb={3}>
           <Tags tags={article.categories.map(c => c.name)} marginTop="3" />
           <Heading fontSize="xl" marginTop="2">
-            <LinkChakra
-              textDecoration="none"
-              href={`/article/${article.id}`}
-              _hover={{ textDecoration: "none" }}
-            >
+            <Link to={`/article/${article.id}`}>
               {article.title || "Untitled"}
-            </LinkChakra>
+            </Link>
           </Heading>
           <Text as="p" fontSize="md" marginTop="2" color="gray.500">
             {article.headline || "No description"}

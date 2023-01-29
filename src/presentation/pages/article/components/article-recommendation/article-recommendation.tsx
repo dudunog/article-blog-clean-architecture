@@ -1,5 +1,6 @@
 import React from "react"
 import { ArticleNextPost } from "@/domain/models"
+import { Link, useNavigate } from "react-router-dom"
 import {
   Button,
   Card,
@@ -7,7 +8,6 @@ import {
   CardFooter,
   Heading,
   Image,
-  Link,
   Stack,
   Text
 } from "@chakra-ui/react"
@@ -15,11 +15,20 @@ import ArticleImage from "@/presentation/assets/article.png"
 
 interface ArticleRecommendationProps {
   nextArticle: ArticleNextPost
+  load: () => Promise<void>
 }
 
 const ArticleRecommendation: React.FC<ArticleRecommendationProps> = ({
-  nextArticle
+  nextArticle,
+  load
 }) => {
+  const navigate = useNavigate()
+
+  const handleNavigateToArticle = (): void => {
+    navigate(`article/${nextArticle?.id}`)
+    load()
+  }
+
   return (
     <>
       <Heading fontSize="3xl" mt={10}>
@@ -48,12 +57,8 @@ const ArticleRecommendation: React.FC<ArticleRecommendationProps> = ({
           </CardBody>
 
           <CardFooter>
-            <Link
-              textDecoration="none"
-              href={`/article/${nextArticle?.id}`}
-              _hover={{ textDecoration: "none" }}
-            >
-              <Button variant="solid" colorScheme="blue">
+            <Link to={`/article/${nextArticle?.id}`}>
+              <Button variant="solid" colorScheme="blue" onClick={handleNavigateToArticle}>
                 Visualizar
               </Button>
             </Link>
