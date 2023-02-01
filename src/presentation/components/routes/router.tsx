@@ -15,7 +15,7 @@ const Router: React.FC = () => {
         <Route path="/" element={<MainLayout />}>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={makeHome({})} />
-          <Route path="/article/:id" element={makeArticle({})} />z
+          <Route path="/article/:id" element={makeArticle({})} />
         </Route>
       </Routes>
     </BrowserRouter>
