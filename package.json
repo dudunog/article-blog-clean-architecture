@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite --host --port 9045",
-    "build": "tsc && vite build && echo ‘/* /index.html 200’ | cat >build/_redirects",
+    "build": "tsc && vite build && echo '/* /index.html  200' | cat >build/_redirects",
     "preview": "vite preview",
     "test": "jest --passWithNoTests",
     "test:watch": "npm test -- --watch",
