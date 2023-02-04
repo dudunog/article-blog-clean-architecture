@@ -25,3 +25,6 @@ yarn-error.log*
 coverage
 
 dist
+
+# Local Netlify folder
+.netlify

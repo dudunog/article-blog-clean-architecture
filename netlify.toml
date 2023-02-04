@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/content/:splat"
+  status = 200
