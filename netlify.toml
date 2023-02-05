@@ -7,6 +7,6 @@
   status = 200
 
 [[redirects]]
-  from = "index.html"
+  from = "/*"
   to = "/.netlify/functions/og-tags/:splat"
   status = 200
