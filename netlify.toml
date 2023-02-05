@@ -8,5 +8,5 @@
 
 [[redirects]]
   from = "index.html"
-  to = "/.netlify/functions/content/:splat"
+  to = "/.netlify/functions/og-tags/:splat"
   status = 200
