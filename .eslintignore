@@ -6,3 +6,4 @@ coverage
 vite.config.ts
 assets
 functions
+ssr
